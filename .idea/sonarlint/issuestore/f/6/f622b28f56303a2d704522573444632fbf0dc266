@@ -1,0 +1,15 @@
+
+r	java:S1174"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(öÆÆÎøÿÿÿÿ8õ²Ê‚½1
+7
+java:S1220""Move this file to a named package.8õ²Ê‚½1
+]	java:S125"<This block of commented-out lines of code should be removed.(‘Ç»¯øÿÿÿÿ8ø²Ê‚½1
+Ž
+java:S1130%"lRemove the declaration of thrown exception 'java.lang.Exception', as it cannot be thrown from method's body.(íä¸üÿÿÿÿ8ù²Ê‚½1
+L
+java:S1197%"*Move the array designators [] to the type.(íä¸üÿÿÿÿ8ù²Ê‚½1
+W	java:S125."<This block of commented-out lines of code should be removed.(ž“¥08ú²Ê‚½1
+L
+java:S5869>"*Remove duplicates in this character class.(„Ý”ðüÿÿÿÿ8ü²Ê‚½1
+F	java:S106?"+Replace this use of System.out by a logger.(ÝËû+8ü²Ê‚½1
+Q
+java:S1128"4Remove this unused import 'java.io.FileInputStream'.(˜³ÉÓ8ü²Ê‚½1
