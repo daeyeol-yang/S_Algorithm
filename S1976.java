@@ -32,7 +32,7 @@ import java.io.FileInputStream;
    사용하는 클래스명이 Solution 이어야 하므로, 가급적 Solution.java 를 사용할 것을 권장합니다.
    이러한 상황에서도 동일하게 java Solution 명령으로 프로그램을 수행해볼 수 있습니다.
  */
-class S6730
+class S1976
 {
 	public static void main(String args[]) throws Exception
 	{
@@ -56,28 +56,18 @@ class S6730
 		*/
 
 		for(int test_case = 1; test_case <= T; test_case++)
-		{
-            int N = sc.nextInt();
-            int []Array = new int[N];
-            for (int i = 0; i < N; i++) {
-                Array[i]=sc.nextInt();
-            }
-            int Down =0;
-            int Up=0;
-            for (int i = 0; i < Array.length-1; i++) {
-                int gap=Array[i]-Array[i+1];
-                if(gap<0){
-                    if(gap>Up){
-                        Up=gap;
-                    }
-                }else{
-                    if(Math.abs(gap)>Down){
-                        Down=Math.abs(gap);
-                    }
-                }
-            }
+		{   
+            int si1 = sc.nextInt();
+            int bun1 = sc.nextInt();
+            int si2 = sc.nextInt();
+            int bun2= sc.nextInt();
 
-            System.out.println("#"+test_case+" "+Up+" "+Down);
+            int resultBun = (bun1+bun2)%60;
+            int resultSi = si1+si2+(bun1+bun2)/60;
+
+            System.out.println("#"+test_case+" "+resultSi+" "+resultBun);
+
+
 		
 			/////////////////////////////////////////////////////////////////////////////////////////////
 			/*

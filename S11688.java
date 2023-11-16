@@ -32,7 +32,7 @@ import java.io.FileInputStream;
    사용하는 클래스명이 Solution 이어야 하므로, 가급적 Solution.java 를 사용할 것을 권장합니다.
    이러한 상황에서도 동일하게 java Solution 명령으로 프로그램을 수행해볼 수 있습니다.
  */
-class S6730
+class S11688
 {
 	public static void main(String args[]) throws Exception
 	{
@@ -56,35 +56,25 @@ class S6730
 		*/
 
 		for(int test_case = 1; test_case <= T; test_case++)
-		{
-            int N = sc.nextInt();
-            int []Array = new int[N];
-            for (int i = 0; i < N; i++) {
-                Array[i]=sc.nextInt();
-            }
-            int Down =0;
-            int Up=0;
-            for (int i = 0; i < Array.length-1; i++) {
-                int gap=Array[i]-Array[i+1];
-                if(gap<0){
-                    if(gap>Up){
-                        Up=gap;
-                    }
-                }else{
-                    if(Math.abs(gap)>Down){
-                        Down=Math.abs(gap);
-                    }
-                }
-            }
+		{   int result1=1;
+            int result2=1;
+            String s = sc.next();
+            for (int i = 0; i < s.length(); i++) {
+               char letter= s.charAt(i);
+               if(letter=='L'){
+                result2=result1+result2;
 
-            System.out.println("#"+test_case+" "+Up+" "+Down);
+               }else{
+                result1=result1+result2;
+               }
+            }
 		
 			/////////////////////////////////////////////////////////////////////////////////////////////
 			/*
 				 이 부분에 여러분의 알고리즘 구현이 들어갑니다.
 			 */
 			/////////////////////////////////////////////////////////////////////////////////////////////
-
+            System.out.println("#"+test_case+" "+result1+" "+result2);
 		}
 	}
 }

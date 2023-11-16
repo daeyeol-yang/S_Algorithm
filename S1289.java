@@ -32,7 +32,7 @@ import java.io.FileInputStream;
    사용하는 클래스명이 Solution 이어야 하므로, 가급적 Solution.java 를 사용할 것을 권장합니다.
    이러한 상황에서도 동일하게 java Solution 명령으로 프로그램을 수행해볼 수 있습니다.
  */
-class S6730
+class S1289
 {
 	public static void main(String args[]) throws Exception
 	{
@@ -57,34 +57,31 @@ class S6730
 
 		for(int test_case = 1; test_case <= T; test_case++)
 		{
-            int N = sc.nextInt();
-            int []Array = new int[N];
-            for (int i = 0; i < N; i++) {
-                Array[i]=sc.nextInt();
+            
+            String s=sc.next();
+            int []Array = new int[s.length()];
+            for (int i = 0; i < s.length(); i++) {
+                Array[i]=Integer.parseInt(s.substring(i, i+1));
             }
-            int Down =0;
-            int Up=0;
-            for (int i = 0; i < Array.length-1; i++) {
-                int gap=Array[i]-Array[i+1];
-                if(gap<0){
-                    if(gap>Up){
-                        Up=gap;
+            int count=0;
+            for (int i = 0; i < s.length(); i++) {
+                if(Array[i]==1){
+                    for (int j = i+1; j < s.length(); j++) {
+                        if(Array[j]==1){
+                            Array[j]=0;
+                        }else{
+                            Array[j]=1;
+                        }
                     }
-                }else{
-                    if(Math.abs(gap)>Down){
-                        Down=Math.abs(gap);
-                    }
+                    count++;
                 }
             }
-
-            System.out.println("#"+test_case+" "+Up+" "+Down);
-		
 			/////////////////////////////////////////////////////////////////////////////////////////////
 			/*
 				 이 부분에 여러분의 알고리즘 구현이 들어갑니다.
 			 */
 			/////////////////////////////////////////////////////////////////////////////////////////////
-
+            System.out.println("#"+test_case+" "+count);
 		}
 	}
 }
