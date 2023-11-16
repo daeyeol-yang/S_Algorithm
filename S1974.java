@@ -25,6 +25,7 @@
 //System.out.println(var);		       				   // 문자열 1개 출력하는 예제
 //System.out.println(AB);		       				     // long 변수 1개 출력하는 예제
 /////////////////////////////////////////////////////////////////////////////////////////////
+import java.util.Arrays;
 import java.util.Scanner;
 import java.io.FileInputStream;
 
@@ -32,7 +33,7 @@ import java.io.FileInputStream;
    사용하는 클래스명이 Solution 이어야 하므로, 가급적 Solution.java 를 사용할 것을 권장합니다.
    이러한 상황에서도 동일하게 java Solution 명령으로 프로그램을 수행해볼 수 있습니다.
  */
-class S1976
+class S1974
 {
 	public static void main(String args[]) throws Exception
 	{
@@ -55,17 +56,89 @@ class S1976
 		   여러 개의 테스트 케이스가 주어지므로, 각각을 처리합니다.
 		*/
 
+
 		for(int test_case = 1; test_case <= T; test_case++)
-		{   
-            int si1 = sc.nextInt();
-            int bun1 = sc.nextInt();
-            int si2 = sc.nextInt();
-            int bun2= sc.nextInt();
 
-            int resultBun = (bun1+bun2)%60;
-            int resultSi = si1+si2+(bun1+bun2)/60;
+		{
+            int result =1;
+            int []resultArray={1,2,3,4,5,6,7,8,9};
+            int []userArray=new int[9];
+            
+            int [][] Array = new int[9][9];
+            int [][]userArrayT= new int[3][3];
+            for (int i = 0; i < 9; i++) {
+                for (int j = 0; j < 9; j++) {
+                    Array[i][j]=sc.nextInt();
+                }
+            }
 
-            System.out.println("#"+test_case+" "+(resultSi%12==0?12:resultSi%12)+" "+resultBun);
+            for (int i = 0; i < Array.length; i++) {
+                for (int j = 0; j < Array.length; j++) {
+                    userArray[j]=Array[i][j];
+                    
+                }
+                Arrays.sort(userArray);
+                for (int j = 0; j < Array.length; j++) {
+                    if(userArray[j]!=resultArray[j]){
+                        result=0;
+                        break;
+                    }
+                }
+                if(result==0){
+                    break;
+                }
+            }
+
+            for (int i = 0; i < Array.length; i++) {
+                for (int j = 0; j < Array.length; j++) {
+                    userArray[j]=Array[j][i];
+                    
+                }
+                Arrays.sort(userArray);
+                for (int j = 0; j < Array.length; j++) {
+                    if(userArray[j]!=resultArray[j]){
+                        result=0;
+                        break;
+                    }
+                }
+                if(result==0){
+                    break;
+                }
+            }
+
+            
+            
+
+            for (int i = 0; i < Array.length; i++) {
+                if(i%3==0){
+                    int number=0;
+                
+                for (int j = i; j < i+3; j++) {
+                    for (int j2 = i; j2 < i+3; j2++) {
+                        
+                        userArray[number]=Array[j][j2];
+                       
+                        number++;
+                    }
+                    
+                }
+                Arrays.sort(userArray);
+                // for (int j = 0; j < userArray.length; j++) {
+                //     System.out.println(userArray[j]);
+                // }
+                for (int j = 0; j < Array.length; j++) {
+                    
+                    if(userArray[j]!=resultArray[j]){
+                        
+                        result=0;
+                        break;
+                    }
+                }
+                if(result==0){
+                    break;
+                }
+            }
+            }
 
 
 		
@@ -74,6 +147,8 @@ class S1976
 				 이 부분에 여러분의 알고리즘 구현이 들어갑니다.
 			 */
 			/////////////////////////////////////////////////////////////////////////////////////////////
+
+            System.out.println("#"+test_case+" "+result);
 
 		}
 	}
