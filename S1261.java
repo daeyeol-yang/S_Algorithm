@@ -27,12 +27,13 @@
 /////////////////////////////////////////////////////////////////////////////////////////////
 import java.util.Scanner;
 import java.io.FileInputStream;
+import java.lang.reflect.Array;
 
 /*
    사용하는 클래스명이 Solution 이어야 하므로, 가급적 Solution.java 를 사용할 것을 권장합니다.
    이러한 상황에서도 동일하게 java Solution 명령으로 프로그램을 수행해볼 수 있습니다.
  */
-class S2001
+class S1261
 {
 	public static void main(String args[]) throws Exception
 	{
@@ -57,40 +58,23 @@ class S2001
 
 		for(int test_case = 1; test_case <= T; test_case++)
 		{
-            int N  =sc.nextInt();
-            int M =sc.nextInt();
 
-            int [][]Array = new int[N][N];
-
-
-
-            for (int i = 0; i < Array.length; i++) {
-                for (int j = 0; j < Array.length; j++) {
+            int N = sc.nextInt();
+            int [][]Array= new int[N][N];
+            int [][]Array9= new int[N][N];
+            int [][]Array18= new int[N][N];
+            int [][]Array27= new int[N][N];
+            for (int i = 0; i < N; i++) {
+                for (int j = 0; j < N; j++) {
                     Array[i][j]=sc.nextInt();
+
                 }
             }
+            Array9=rotate90(Array);
+            Array18=rotate90(Array9);
+            Array27=rotate90(Array18);
 
-            int max =0;
 
-            for (int i = 0; i < Array.length-M+1; i++) {
-                for (int j = 0; j <Array.length -M+1; j++) {
-                    int sum =0;
-                    
-                
-            for (int i1 = i; i1 < M+i; i1++) {
-                for (int j1 = j; j1 < M+j; j1++) {
-                
-                    sum+=Array[i1][j1];
-                }
-            
-            
-            }
-            if(sum>max){
-                max=sum;
-            }
-        }
-        }
-        System.out.println("#"+test_case+" "+max);
 
 		
 			/////////////////////////////////////////////////////////////////////////////////////////////
@@ -98,7 +82,39 @@ class S2001
 				 이 부분에 여러분의 알고리즘 구현이 들어갑니다.
 			 */
 			/////////////////////////////////////////////////////////////////////////////////////////////
+            
+            System.out.println("#"+test_case);
+            for (int i = 0; i < Array27.length; i++) {
+                for (int j = 0; j < Array27.length; j++) {
+                    System.out.print(Array9[i][j]);
+                    
+                }
+                System.out.print(" ");
+                for (int j = 0; j < Array27.length; j++) {
+                    System.out.print(Array18[i][j]);
+                    
+                }
+                System.out.print(" ");
+                for (int j = 0; j < Array27.length; j++) {
+                    System.out.print(Array27[i][j]);
+                    
+                }
+
+                System.out.println();
+            }
 
 		}
+
+       
 	}
+     public static int[][] rotate90(int[][] array){
+        int[][] newArray = new int[array.length][array.length];
+        for (int i = 0; i < array.length; i++) {
+            for (int j = 0; j < array.length; j++) {
+                newArray[j][array.length-i-1]= array[i][j];
+            }
+        }
+
+        return newArray;
+        }
 }

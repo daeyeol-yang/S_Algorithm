@@ -25,6 +25,7 @@
 //System.out.println(var);		       				   // 문자열 1개 출력하는 예제
 //System.out.println(AB);		       				     // long 변수 1개 출력하는 예제
 /////////////////////////////////////////////////////////////////////////////////////////////
+import java.util.Arrays;
 import java.util.Scanner;
 import java.io.FileInputStream;
 
@@ -32,7 +33,7 @@ import java.io.FileInputStream;
    사용하는 클래스명이 Solution 이어야 하므로, 가급적 Solution.java 를 사용할 것을 권장합니다.
    이러한 상황에서도 동일하게 java Solution 명령으로 프로그램을 수행해볼 수 있습니다.
  */
-class S2001
+class S1966
 {
 	public static void main(String args[]) throws Exception
 	{
@@ -57,47 +58,23 @@ class S2001
 
 		for(int test_case = 1; test_case <= T; test_case++)
 		{
-            int N  =sc.nextInt();
-            int M =sc.nextInt();
-
-            int [][]Array = new int[N][N];
-
-
-
+            int N = sc.nextInt();
+            int []Array = new int[N];
             for (int i = 0; i < Array.length; i++) {
-                for (int j = 0; j < Array.length; j++) {
-                    Array[i][j]=sc.nextInt();
-                }
+                Array[i]=sc.nextInt();
             }
-
-            int max =0;
-
-            for (int i = 0; i < Array.length-M+1; i++) {
-                for (int j = 0; j <Array.length -M+1; j++) {
-                    int sum =0;
-                    
-                
-            for (int i1 = i; i1 < M+i; i1++) {
-                for (int j1 = j; j1 < M+j; j1++) {
-                
-                    sum+=Array[i1][j1];
-                }
-            
-            
-            }
-            if(sum>max){
-                max=sum;
-            }
-        }
-        }
-        System.out.println("#"+test_case+" "+max);
-
+            Arrays.sort(Array);
 		
 			/////////////////////////////////////////////////////////////////////////////////////////////
 			/*
 				 이 부분에 여러분의 알고리즘 구현이 들어갑니다.
 			 */
 			/////////////////////////////////////////////////////////////////////////////////////////////
+            System.out.print("#"+test_case+" ");
+            for (int i = 0; i < Array.length; i++) {
+                System.out.print(Array[i]+" ");
+            }
+            
 
 		}
 	}

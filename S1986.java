@@ -32,10 +32,11 @@ import java.io.FileInputStream;
    사용하는 클래스명이 Solution 이어야 하므로, 가급적 Solution.java 를 사용할 것을 권장합니다.
    이러한 상황에서도 동일하게 java Solution 명령으로 프로그램을 수행해볼 수 있습니다.
  */
-class S2001
+class S1986
 {
 	public static void main(String args[]) throws Exception
 	{
+        
 		/*
 		   아래의 메소드 호출은 앞으로 표준 입력(키보드) 대신 input.txt 파일로부터 읽어오겠다는 의미의 코드입니다.
 		   여러분이 작성한 코드를 테스트 할 때, 편의를 위해서 input.txt에 입력을 저장한 후,
@@ -57,40 +58,19 @@ class S2001
 
 		for(int test_case = 1; test_case <= T; test_case++)
 		{
-            int N  =sc.nextInt();
-            int M =sc.nextInt();
-
-            int [][]Array = new int[N][N];
-
-
-
-            for (int i = 0; i < Array.length; i++) {
-                for (int j = 0; j < Array.length; j++) {
-                    Array[i][j]=sc.nextInt();
+            int N = sc.nextInt();
+            int result=0;
+            
+            for (int i = 1; i <= N; i++) {
+                
+                if(i%2==0){
+                    result-=i;
+                }else{
+                    result+=i;
                 }
             }
+            System.out.println("#"+test_case+" "+result);
 
-            int max =0;
-
-            for (int i = 0; i < Array.length-M+1; i++) {
-                for (int j = 0; j <Array.length -M+1; j++) {
-                    int sum =0;
-                    
-                
-            for (int i1 = i; i1 < M+i; i1++) {
-                for (int j1 = j; j1 < M+j; j1++) {
-                
-                    sum+=Array[i1][j1];
-                }
-            
-            
-            }
-            if(sum>max){
-                max=sum;
-            }
-        }
-        }
-        System.out.println("#"+test_case+" "+max);
 
 		
 			/////////////////////////////////////////////////////////////////////////////////////////////

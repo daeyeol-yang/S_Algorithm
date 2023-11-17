@@ -32,7 +32,7 @@ import java.io.FileInputStream;
    사용하는 클래스명이 Solution 이어야 하므로, 가급적 Solution.java 를 사용할 것을 권장합니다.
    이러한 상황에서도 동일하게 java Solution 명령으로 프로그램을 수행해볼 수 있습니다.
  */
-class S2001
+class S1288
 {
 	public static void main(String args[]) throws Exception
 	{
@@ -57,40 +57,51 @@ class S2001
 
 		for(int test_case = 1; test_case <= T; test_case++)
 		{
-            int N  =sc.nextInt();
-            int M =sc.nextInt();
+            int N =sc.nextInt();
+            int fix=N;
+            
+            boolean Array[] =new boolean[10];
+            boolean result =false;
+            int index =0;
+            while(true){
 
-            int [][]Array = new int[N][N];
 
-
-
-            for (int i = 0; i < Array.length; i++) {
-                for (int j = 0; j < Array.length; j++) {
-                    Array[i][j]=sc.nextInt();
+                String s = String.valueOf(N);
+                
+                String []SArray = s.split("");
+                for (int i = 0; i < SArray.length; i++) {
+                    for (int j = 0; j < Array.length; j++) {
+                        if(Integer.parseInt(SArray[i])==j){
+                            Array[j]=true;
+                            
+                        }
+                    }
                 }
-            }
-
-            int max =0;
-
-            for (int i = 0; i < Array.length-M+1; i++) {
-                for (int j = 0; j <Array.length -M+1; j++) {
-                    int sum =0;
+                
+                int count =0;
+                for (int i = 0; i < Array.length; i++) {
+                    if(Array[i]==true){
+                       count++;                      
+                        
+                    }
                     
-                
-            for (int i1 = i; i1 < M+i; i1++) {
-                for (int j1 = j; j1 < M+j; j1++) {
-                
-                    sum+=Array[i1][j1];
+                    if(count==Array.length){
+                        result=true;
+                    }
+                                       
                 }
-            
-            
+
+                if(result){
+                    break;
+                }
+                index++;
+                N=index*fix;
+               
+               
+
             }
-            if(sum>max){
-                max=sum;
-            }
-        }
-        }
-        System.out.println("#"+test_case+" "+max);
+
+            System.out.println("#"+test_case+" "+N);
 
 		
 			/////////////////////////////////////////////////////////////////////////////////////////////
