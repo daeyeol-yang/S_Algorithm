@@ -73,9 +73,9 @@ class S8658
                 Sum[i]=sum;
             }
             Arrays.sort(Sum);
-            System.out.print(Arrays.toString(Sum));
 
-            System.out.println("#"+test_case+" "+Sum[Sum.length-1]+" "+Sum[Sum[0]]);
+
+            System.out.println("#"+test_case+" "+Sum[Sum.length-1]+" "+Sum[0]);
 
 		
 			/////////////////////////////////////////////////////////////////////////////////////////////
